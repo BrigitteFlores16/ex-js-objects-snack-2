@@ -21,3 +21,4 @@ const chef = {
   },
 };
 //Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+//structuredClone perche cosi riusciamo a copiare correttamente anche tutti gli oggetti annidati e i metodi.
