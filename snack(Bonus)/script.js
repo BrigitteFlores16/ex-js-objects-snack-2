@@ -1,7 +1,7 @@
 //Snack (Bonus)
 //Crea una funzione che permette la copia profonda (deep copy) di un oggetto, che copia anche i suoi metodi (proprietà che contengono funzioni).
 // Usa l’oggetto di Code Question 6 come test.
-//⚠️ Serve usare una funzione ricorsiva! (fai un po’ di ricerca).
+//Serve usare una funzione ricorsiva! (fai un po’ di ricerca).
 const chef = {
   name: "Chef Hyur",
   age: 29,
@@ -23,29 +23,23 @@ const chef = {
     isOpen: true,
   },
 };
-function deepClone(oggetto) {
-  if (oggetto === null || typeof oggetto !== "oggetto") {
-    return oggetto;
+function deepClone(obj) {
+  if (typeof obj !== "oggetto") {
+    return obj;
   }
-  if (Array.isArray(oggetto)) {
-    return oggetto.map((element) => deepClone(element));
-  }
-  const clone = oggetto.create(oggetto.getPrototypeOf(oggetto));
-  for (const key in oggetto) {
-    if (oggetto.hasOwnProperty(key)) {
-      clone[key] = deepClone(oggetto[key]);
+  const clone = {};
+  for (const key in obj) {
+    const value = obj[key];
+    if (typeof value !== "object") {
+      clone[key] = value;
+    } else {
+      clone[key] = deepClone(value);
     }
   }
-
-  return clone;
+  return deep;
 }
+const chefclone = deepClone(chef);
+console.log(chefclone);
 
-const clonedChef = deepClone(chef);
-
-console.log(clonedChef);
-clonedChef.makeBurger();
-clonedChef.restaurant.welcomeClient();
-const oggetto = {};
-
-clonedChef.restaurant.address.showAddress(oggetto);
-clonedChef.makeBurger(2);
+const numeri = [1, 2, 3];
+console.log(Array.isArray(chef));

@@ -14,9 +14,12 @@ const hamburger = {
 };
 
 const newRestaurant = { ...hamburger.maker.restaurant };
+
 newRestaurant.name = "Hyur's II";
 newRestaurant.address = "Second Street, 12";
+
 const secondBurger = { ...hamburger };
+
 secondBurger.maker.restaurant = newRestaurant;
 secondBurger.maker.name = "Chef Hyur";
 
@@ -24,13 +27,14 @@ console.log(hamburger.maker.name);
 console.log(secondBurger.maker.name);
 console.log(hamburger.maker.restaurant.name);
 console.log(secondBurger.maker.restaurant.name);
-//Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
-//.viene stampato "Anonymous Chef"
+//Domande:
+//1.Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
+//.viene stampato "chef Hyur"
 //.viene stampato "Chef Hyur"
-//.viene stampato "Hyur's Burgers"
+//.viene stampato "Hyur's II"
 //.viene stampato "Hyur's II"
 
-//Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+//2.Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
 //tre oggetti : l'oggetto hamburger e i due oggetti secondBurger e newRestaurant.
 //l'oggetto hamburger contiene un oggetto annidato maker, che a sua volta contiene un oggetto annidato restaurant.
 // I due copie secondBurger e newRestaurant conterranno ciascuno un oggetto maker e un oggetto restaurant completamente separati, con i loro valori unici.

@@ -20,5 +20,18 @@ const chef = {
     isOpen: true,
   },
 };
-//Qual è il metodo migliore per clonare l’oggetto chef, e perché?
-//structuredClone perche cosi riusciamo a copiare correttamente anche tutti gli oggetti annidati e i metodi.
+// Domande:
+//1.Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+
+const secondChef = {
+  ...chef,
+  restaurant: {
+    ...chef.restaurant,
+    address: {
+      ...chef.restaurant.address,
+    },
+  },
+};
+console.log(secondChef);
+//il metodo migliore per clonare l'oggetto chef è quello di utilizzare lo spread operator, in quanto permette di creare una copia dell'oggetto senza modificarlo,
+// inoltre è molto più leggibile rispetto ad altri metodi come Object.assign() o JSON.parse(JSON.stringify()).
